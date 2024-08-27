@@ -1,0 +1,135 @@
+@import '../../../../styles.scss';
+
+.acr_cont{
+    display: flex;
+}
+
+.acr_contest{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .acr_contest_header{
+      display: flex;
+  }
+
+  .acr_contest_body{
+      display: flex;
+
+      .acr_contest_descp{
+          width: 50%;
+          padding: 0px 20px;
+
+          &_body{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: var(--sidebar-color-fondo);
+            box-shadow: 0 8px 4px rgba(0, 0, 0, 0.0392156863), 0 0 4px rgba(0, 0, 0, 0.2509803922);
+            border-radius: 5px;
+            padding: 20px 20px;
+          }
+
+          .acr_contest_text{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+          }
+          .acr_contest_button{
+              display: flex;
+          }
+
+      }
+
+      .acr_contest_img{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 30%;
+
+      }
+
+
+  }
+}
+
+.acr_nocontest {
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    margin: 0 auto;
+
+    i {
+        font-size: 60px;
+        color: var(--color-text);
+    }
+}
+
+
+
+
+/* CSS */
+.button-23 {
+  background-color: var(--primary-color-neutro);
+  border: 1px solid white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  font-size: $fs-xs;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.button-23:active {
+  transform: scale(.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+  @media (max-width: 768px) {
+    .container{
+        .container-true{
+        .acr_contest_body{
+            flex-direction: column;
+            .acr_contest_img{
+                width: 100%;
+            }
+
+            .acr_contest_descp{
+                width: 100%;
+
+            }
+        }
+    }
+    }
+
+  }

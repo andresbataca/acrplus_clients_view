@@ -1,0 +1,62 @@
+
+<span (click)="back()"><i class="fa-solid fa-circle-arrow-left acr_icon"></i></span>
+
+<form (ngSubmit)="getSubmit()" [formGroup]="payPseForm" class="acr_form">
+
+  <div class="acr_form_header">
+    <app-title type="tit" [label]="'Pagos Pse'" font="var(--fs-md)" />
+    <app-title type="sub" [label]="'Pago seguro en Línea, La forma confiable y rápida de realizar tus transacciones.'" font="var(--fs-xs)" />
+  </div>
+
+  <div class="acr_form_body">
+    <div class="acr_menu">
+      <!-- <div class="acr_card">
+        <div class="acr_card_header">
+          <app-title type="sub" [label]="'Pago mínimo'" weight="500" />
+          <input formControlName="check" type="radio" id="monto1" name="check" value="monto1">
+        </div>
+        <span  class="acr_icon"><i [ngStyle]="{'color': 'var(--secondary-color-1)'}" class="fa-solid fa-money-bill"></i></span>
+        <div class="acr_card_body">
+          <app-title type="tit" [label]="'200.000'" font="var(--fs-sm)" weight="700" />
+          <app-title type="sub" [label]="" weight="500" font="var(--fs-xxs)" />
+        </div>
+      </div> -->
+      <!-- <div class="acr_card">
+        <div class="acr_card_header">
+          <app-title type="sub" [label]="'Pago total'" weight="500" />
+          <input formControlName="check" type="radio" id="monto2" name="check" value="monto2">
+        </div>
+        <span class="acr_icon"><i [ngStyle]="{'color': 'var(--secondary-color-2)'}" class="fa-solid fa-chart-line"></i></span>
+        <div class="acr_card_body">
+          <app-title type="tit" [label]="'2000.000'" font="var(--fs-sm)" weight="700" />
+          <app-title type="sub" [label]="" weight="500" font="var(--fs-xxs)" />
+        </div>
+      </div> -->
+      <!-- <div class="acr_card">
+        <div class="acr_card_header">
+          <app-title type="sub" [label]="'Otro valor'" weight="500" />
+          <input formControlName="check" type="radio" id="personalizado" name="check" value="personalizado">
+        </div>
+        <span class="acr_icon"><i [ngStyle]="{'color': 'var(--secondary-color-3)'}" class="fa-solid fa-server"></i></span>
+        <div class="acr_card_body">
+          <input formControlName="valor" class="acr_input" type="text" placeholder="Monto">
+          <app-title type="sub" [label]="" weight="500" font="var(--fs-xxs)" />
+        </div>
+      </div> -->
+
+      <app-card-button-pay [form]="payPseForm" [cardArray]="card1()"></app-card-button-pay>
+      <app-card-button-pay [form]="payPseForm" [cardArray]="card2()"></app-card-button-pay>
+      <app-card-button-pay [form]="payPseForm" [cardArray]="card3()"></app-card-button-pay>
+
+    </div>
+
+    <app-select [form]="payPseForm" [arraySelect]="arraySelect1"></app-select>
+    <app-select [form]="payPseForm" [arraySelect]="arraySelect2()"></app-select>
+
+    <div class="btn-change">
+      <app-button [buttonArray]="newButton()" [myForm]="payPseForm.valid"></app-button>
+    </div>
+  </div>
+
+</form>
+

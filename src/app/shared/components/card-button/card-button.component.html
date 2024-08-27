@@ -1,0 +1,22 @@
+
+@if (cardArray()) {
+  <div [ngClass]="{'acr_disable': cardArray().disabled }" class="acr_card" (click)="cardArray().onMethodAction()">
+  <div class="acr_card_body">
+    <div class="acr_card_header">
+      @if (cardArray().img) {
+        <img [src]="cardArray().img">
+      }
+      @if (cardArray().icon) {
+        <span [ngStyle]="{'background-color': cardArray().bckgrIcon}"><i [ngStyle]="{'color': cardArray().coloricon }" class='{{cardArray().icon}}'></i></span>
+      }
+    </div>
+    <div>
+      <app-title type="sub" [label]="cardArray().title" weight="500" />
+      <app-title type="sub" [label]="cardArray().subtitle" weight="400" font="var(--fs-xxs)" />
+    </div>
+  </div>
+  @if (cardArray().iconButton) {
+    <span><i class="fa-solid fa-circle-chevron-right"></i></span>
+  }
+</div>
+}

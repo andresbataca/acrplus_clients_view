@@ -1,0 +1,35 @@
+@if (cardArray()) {
+<div class="acr_card">
+  <span class="acr_icon"><i [style.color]="cardArray().coloricon" class='{{cardArray().icon}}'></i></span>
+  <div class="acr_card_header">
+    <app-title type="sub" [label]="cardArray().title" weight="500" />
+  </div>
+  <div class="acr_card_body">
+    <app-title type="tit" [label]="cardArray().subtitle" font="var(--fs-sm)" weight="700" />
+    <app-title type="sub" [label]="cardArray().description" weight="500" font="var(--fs-xxs)" />
+
+  </div>
+
+  <app-button-menu [buttonArray]="cardArray().buttomItem"></app-button-menu>
+
+</div>
+}
+
+
+  <!-- <div class="acr_card_button">
+    <button #button (click)="toggleMenu()" class="button-37">
+      <span>Pagar</span>
+      <span><i class="fa-solid fa-angle-down"></i></span>
+    </button>
+
+    <div #payContent class="acr_menu" [ngClass]="{'open': isOpen()}">
+      <ul>
+        <li *ngFor="let data of cardArray().dataItem">
+          <div class="acr_menu_item" (click)="data.onMethodAction()">
+            <img [src]="data.img" alt="">
+            <p>{{data.name}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div> -->

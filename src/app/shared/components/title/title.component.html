@@ -1,0 +1,5 @@
+@if (type() === 'tit') {
+  <p [ngStyle]="styles ? styles : {'color' : color, 'font-weight' : weight,'font-size' : font}" class="acr_title" [innerHTML]="label"></p>
+}@else {
+  <p [ngStyle]="styles ? styles : {'color' : color, 'font-weight' : weight,'font-size' : font}" class="acr_subtitle" [innerHTML]="label"></p>
+}

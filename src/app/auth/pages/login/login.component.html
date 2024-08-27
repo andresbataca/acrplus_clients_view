@@ -1,0 +1,45 @@
+<section class="acr_cont">
+
+  <app-dark-mode Mode="simple" [styles]="{'position': 'absolute', 'top': '10px', 'right': '10px', 'padding': '15px'}"></app-dark-mode>
+
+  <app-tooltip></app-tooltip>
+
+  <div class="acr-form_cont">
+
+
+    <form (ngSubmit)="getSubmit()" [formGroup]="dataForm" class="acr_form">
+
+      <div class="acr_form_header">
+        <div class="acr_form_img">
+          <img src="https://creditoacr.com/wp-content/uploads/2023/04/Logo-peq-Credito-ACR-.png" alt="">
+        </div>
+
+        <div class="acr_form_title">
+          <h2>Inicia tu sesión</h2>
+        </div>
+
+        <div class="acr_form_subtitle">
+          <h2>Ingresa los siguientes datos</h2>
+        </div>
+      </div>
+      <app-select [form]="dataForm" [arraySelect]="arraySelect1"></app-select>
+      <app-input [form]="dataForm" [arrayInput]="arrayInput1"></app-input>
+      <app-input [form]="dataForm" [arrayInput]="arrayInput2"></app-input>
+
+      <div style="width: 100%">
+        <app-button [buttonArray]="newButton()" [myForm]="dataForm.valid"></app-button>
+      </div>
+
+    </form>
+    <div class="acr_form_recovery">
+      <a (click)="onRecovery()">
+        ¿Olvidaste tu contraseña?
+      </a>
+    </div>
+
+    <div class="acr_form_register">
+      <span >No tienes una cuenta?<a routerLink="/auth/registro" class=""> Registrate</a></span>
+    </div>
+  </div>
+
+</section>

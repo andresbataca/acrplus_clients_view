@@ -1,0 +1,39 @@
+<span (click)="back()"><i class="fa-solid fa-circle-arrow-left acr_icon"></i></span>
+
+@if (stateBinance()) {
+  <form (ngSubmit)="getSubmit()" [formGroup]="payBinanceForm" class="acr_form">
+
+    <div class="acr_form_header">
+      <app-title type="tit" [label]="'Binance'" font="var(--fs-md)" />
+      <app-title type="sub" [label]="'Paga seguro con Binance, líder en criptomonedas.'" font="var(--fs-xs)" />
+    </div>
+
+    <div class="acr_form_body">
+      <div class="acr_menu">
+        <app-card-button-pay [form]="payBinanceForm" [cardArray]="card1()"></app-card-button-pay>
+        <app-card-button-pay [form]="payBinanceForm" [cardArray]="card2()"></app-card-button-pay>
+        <app-card-button-pay [form]="payBinanceForm" [cardArray]="card3()"></app-card-button-pay>
+      </div>
+
+      <app-input [form]="payBinanceForm" [arrayInput]="arrayInput1"></app-input>
+      <app-input [form]="payBinanceForm" [arrayInput]="arrayInput2"></app-input>
+
+      <div class="btn-change">
+        <app-button [buttonArray]="newButton()" [myForm]="payBinanceForm.valid"></app-button>
+      </div>
+    </div>
+
+  </form>
+}
+@else {
+  <div class="acr_respBinance">
+    <app-title type="tit" [label]="'Información de su pago'" font="var(--fs-md)" />
+    <app-title type="sub" [label]="'Para continuar realizando tu pago, tienes estas dos opciones: Puedes escanear con tu aplicacion Binance, el QR a continuacion.'" font="var(--fs-base)" />
+    <img [src]="imgQR()" width="250px" height="250px" alt="">
+    <app-title type="sub" [label]="'O puedes dar click en este boton, para continuar realizando tu pago en el sitio web de Binance.'" font="var(--fs-base)" />
+    <app-button-special [buttonArray]="buttonSpecial1()"></app-button-special>
+  </div>
+}
+
+
+

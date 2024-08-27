@@ -1,0 +1,178 @@
+@import '../../../../styles.scss';
+
+:host {
+  width: var(--width);
+}
+
+.icon-date {
+  position: absolute;
+  right: 11px;
+  top: 9px;
+  font-size: 11px;
+  color: var(--color-text);
+}
+
+.acr_cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+
+
+  .acr_input_cont{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .acr_label {
+    display: flex;
+    font-size: $fs-xs;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .acr_form {
+    position: relative;
+    display: flex;
+    box-shadow: 0 0 5px var(--box-label-input);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 35px;
+    background: var(--sidebar-color-fondo);
+
+    //input
+    .acr_input {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--fondo-input);
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      border: none;
+      font-size: $fs-xs;
+      outline: none;
+      color: var(--color-text);
+      font-family: 'Poppins', sans-serif;
+
+      &::-webkit-calendar-picker-indicator {}
+
+      &:not(:placeholder-shown) {
+        font-weight: 500;
+      }
+
+      &:focus {
+        color: var(--color-text);
+      }
+
+      &::placeholder {
+        color: var(--color-text);
+        opacity: .7;
+      }
+    }
+
+    .input-error {
+      border: var(--primary-color-neutro) 1px solid;
+    }
+
+    .acr_error_icon {
+      position: absolute;
+      font-size: $fs-xs;
+      right: 3px;
+      top: 1px;
+      color: var(--primary-color-neutro);
+    }
+
+    //input
+    .acr_icon_izq {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      background-color: var(--fondo-label-input);
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+
+    }
+
+    .acr_icon_der {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+
+    label {
+      svg {
+        font-size: $fs-xs;
+        color: var(--color-text);
+      }
+    }
+
+  }
+
+}
+
+.acr_error_text {
+  width: 100%;
+  color: var(--primary-color-neutro);
+  font-size: $fs-xs;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+/* ocultar controles de input date */
+input[type="date"]::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  // display: none;
+  background: transparent;
+  z-index: 1;
+  cursor: pointer;
+}
+
+
+.mensaje-cursor {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  pointer-events: none;
+  z-index: 9999;
+  right: 0;
+  top: 35px;
+}
+
+
+.acr_form input[type="date"]::before {
+  font-family: "Font Awesome 5 Free";
+  /* Establece la fuente de FontAwesome */
+  content: "\f073";
+  /* Usa la clase CSS de FontAwesome para el ícono deseado */
+  font-size: 10px;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  // content: "📅";
+  z-index: 0;
+}
+
+.validator-danger {
+  color: red;
+  font-size: $fs-xs;
+}
+
+.validator-success {
+  color: green;
+  font-size: $fs-xs;
+}

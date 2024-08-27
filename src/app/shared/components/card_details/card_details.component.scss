@@ -1,0 +1,32 @@
+@import '../../../../styles.scss';
+
+
+.acr_card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--sidebar-color-fondo);
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.0392156863), 0 0 4px rgba(0, 0, 0, 0.2509803922);
+  border-radius: 5px;
+  padding: 20px;
+  min-height: 100px;
+
+  .acr_card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .acr_icon {
+    display: flex;
+    align-items: center;
+    // padding: 10px;
+    // border-radius: 50%;
+    // background-color: aliceblue;
+
+    svg {
+      font-size: $fs-base;
+      color: var(--color-text);
+    }
+  }
+}

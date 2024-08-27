@@ -1,0 +1,35 @@
+/* ====== Transition ====== */
+$tran-01: 0.1s ease;
+$tran-02: 0.2s ease;
+$tran-03: 0.3s ease;
+$tran-04: 0.4s ease;
+$tran-05: 0.5s ease;
+
+/*Font Size*/
+$fs-base: 1rem; // 1 rem -- 16px
+
+$fs-xxs: $fs-base * 0.625; // 0.625 -- 10px
+$fs-xs: $fs-base * 0.75; // 0.75rem -- 12px
+$fs-sm: $fs-base * 1.25; // 1.25rem -- 20px
+$fs-md: $fs-base * 1.5; // 1.5rem -- 24px
+$fs-lg: $fs-base * 1.75; // 1.75rem -- 28px
+$fs-xl: $fs-base * 2; // 2rem --32px
+$fs-xxl: $fs-base * 2.25; // 2.25rem --36px
+
+/*excepciones*/
+$fs-links: $fs-base * 0.875;
+
+@mixin font-sizes() {
+  --fs-base: #{$fs-base}; // Default 1rem -- 16px
+
+  --fs-xxs: #{$fs-xxs}; // 0.625 -- 10px
+  --fs-xs: #{$fs-xs}; // 0.75rem -- 12px
+  --fs-sm: #{$fs-sm}; // 1.25rem -- 20px
+  --fs-md: #{$fs-md}; // 1.5rem -- 24px
+  --fs-lg: #{$fs-lg}; // 1.75rem -- 28px
+  --fs-xl: #{$fs-xl}; // 2rem -- 32px
+  --fs-xxl: #{$fs-xxl}; // 2.25rem -- 36px
+
+  --fs-links: #{$fs-links}; // 0.875rem
+}
+

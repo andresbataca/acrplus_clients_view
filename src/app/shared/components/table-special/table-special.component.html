@@ -1,0 +1,46 @@
+<div class="acr-cont">
+  <table>
+    <thead>
+      <tr>
+        @for (column of columnsArray(); track $index) {
+          <th>{{column.header}} </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of tableData(); track $index) {
+        <tr>
+          @for (column of columnsArray(); track $index) {
+            <td>
+              @if (column.dataType == 'date') {
+                <span>
+                  <i style="color: #b5d77c;" class="fa-regular fa-calendar-days"></i>
+                    {{user[column.fieldName] | date: 'dd/MM/yyyy'}}
+                </span>}
+              @if (column.dataType == 'string') {<span>{{user[column.fieldName] | titlecase}}</span>}
+              @if (column.dataType == 'number') {<span >{{user[column.fieldName] | currency}}</span>}
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  @if (tableData.length > pageSize) {
+    <div class="acr_actions" >
+      <div class="acr_current">
+        <strong>{{ pageData.start + 1 }} <span>-</span> {{ pageData.end }}</strong>
+        de {{ dataSize }}
+      </div>
+
+        <span class="acr_button" (click)="previous()">
+          <i class='bx bx-chevron-left'></i>
+        </span>
+        <span class="acr_button" (click)="next()" >
+          <i class='bx bx-chevron-right' ></i>
+        </span>
+    </div>
+  }
+</div>
+
+

@@ -1,0 +1,8 @@
+<button
+[class.loading]="buttonArray().load_spinner"
+type="submit"
+class="acr_action-btn"
+(click)="buttonArray().onMethodAction()"
+>
+  {{buttonArray().text}}
+</button>

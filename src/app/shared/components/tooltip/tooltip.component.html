@@ -1,0 +1,10 @@
+  @if (modalArray().viewTool) {
+    <div class="acr_tooltip">
+      <span (click)="modalArray().viewTool=false"><i class="fa-regular fa-circle-xmark"></i></span>
+       <div>
+        <h5>{{modalArray().title}}</h5>
+        <p>{{modalArray().message}}</p>
+       </div>
+    </div>
+  }
+

@@ -1,0 +1,44 @@
+@if ( productState.getData() === 'inicio') {
+  <div class="acr_cont">
+    <div class="div-1">
+      <div class="acr_menu">
+        <app-card-details *Ske="skeleton(); height:'114px' type:'single'" [cardArray]="card1()"></app-card-details>
+        <app-card-details *Ske="skeleton(); height:'114px' type:'single'" [cardArray]="card3()"></app-card-details>
+        <app-card-details *Ske="skeleton(); height:'114px' type:'single'" [cardArray]="card2()"></app-card-details>
+        <app-card-details *Ske="skeleton(); height:'114px' type:'single'" [cardArray]="card4()"></app-card-details>
+      </div>
+    </div>
+
+    <div class="div-2">
+      <div class="acr_movements" *Ske="skeleton(); height:'350px' type:'single'">
+        <div class="acr_movements_body">
+          <app-title type="tit" [label]="'Movimientos'" font="var(--fs-sm)" />
+          <table-special [tableData]="this.dataMovemets()" [columnsArray]="columnArray" />
+        </div>
+
+      </div>
+    </div>
+
+    <div class="div-3">
+      <div class="acr_pay" >
+        <app-card-pay *Ske="skeleton(); height:'180px' type:'single'" [cardArray]="card5()"></app-card-pay>
+        <app-card-pay *Ske="skeleton(); height:'180px' type:'single'" [cardArray]="card6()"></app-card-pay>
+
+        <div class="acr_pay_options" *Ske="skeleton(); height:'290px' type:'single'">
+          <app-title type="tit" [label]="'Medios de pago'" />
+          <app-title type="sub" [label]="'Soluciones de pago prácticas y confiables'" />
+          <app-card-button [cardArray]="card7()"></app-card-button>
+          <app-card-button [cardArray]="card8()"></app-card-button>
+          <app-card-button [cardArray]="card9()"></app-card-button>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}@else if(productState.getData() === 'pse') {
+  <app-pay-pse [ubication]="'products'"></app-pay-pse>
+}@else if(productState.getData() === 'binance') {
+  <app-pay-binance [ubication]="'products'"></app-pay-binance>
+}
+

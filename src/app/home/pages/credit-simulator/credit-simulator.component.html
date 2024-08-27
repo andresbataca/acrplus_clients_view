@@ -1,0 +1,98 @@
+<div class="acr_cont">
+
+  <div class="div-1">
+
+    <form (ngSubmit)="getSimulation()" [formGroup]="simulatorForm" class="acr_form">
+
+      <div class="acr_form_header">
+        <app-title type="tit" [label]="'Simulador'" weight="600" font="var(--fs-sm)" />
+        <app-title type="sub" [label]="'Ingrese los detalles solicitados y obtenga una estimación rápida.'" />
+      </div>
+
+      <div class="acr_form_body">
+        <app-input [form]="simulatorForm" [arrayInput]="arrayInput1"></app-input>
+        <app-select [form]="simulatorForm" [arraySelect]="arrayEmpleadoSelect1"></app-select>
+
+        <div class="acr_slider">
+          <input type="range" min="1" max="12" formControlName="slide" class="acr_range" step="1">
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="div-2">
+    <div class="acr_sim">
+
+      <div class="acr_sim_one">
+
+        <div class="acr_simulator">
+          <span><i class="fa-solid fa-chart-pie"></i></span>
+
+          <div class="acr_simulator_body">
+            <app-title type="tit" [label]="'Valor de tu cuota'" weight="400" />
+            <app-title type="tit" [label]="simulation().cuotaMes === 0 ? '$ 0.00' : (simulation().cuotaMes | customNumber)" font="var(--fs-md)" />
+            <app-title type="sub" [label]="'Valor de la cuota mensual'" font="var(--fs-xxs)" />
+          </div>
+
+          <button class="button7">
+            Reiniciar
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="acr_sim_two">
+        <!-- <div style="text-align: center; margin-bottom: 20px;">
+          <app-title type="tit" [label]="'Revisa tu solicitud'"  />
+        </div> -->
+
+        <div class="acr_cards">
+          <div class="acr_card">
+            <div>
+              <app-icon [arrayIcon]="icon1()"></app-icon>
+              <app-title type="sub" [label]="'Número de cuotas'" />
+            </div>
+            <app-title type="tit" [label]="simulation().cuotas === 0 ? '$ 0.00' : (simulation().cuotas | customNumber)" />
+
+          </div>
+          <div class="acr_card">
+            <div>
+              <app-icon [arrayIcon]="icon2()"></app-icon>
+              <app-title type="sub" [label]="'Interés'" />
+            </div>
+            <app-title type="tit" [label]="simulation().interes === 0 ? '$ 0.00' : (simulation().interes)" />
+
+          </div>
+          <div class="acr_card">
+            <div>
+              <app-icon [arrayIcon]="icon3()"></app-icon>
+              <app-title type="sub" [label]="'Cuota'" />
+            </div>
+            <app-title type="tit" [label]="simulation().cuota === 0 ? '$ 0.00' : (simulation().cuota | customNumber)" />
+
+          </div>
+          <div class="acr_card">
+            <div>
+              <app-icon [arrayIcon]="icon4()"></app-icon>
+              <app-title type="sub" [label]="'Seguro'" />
+            </div>
+            <app-title type="tit" [label]="simulation().seguro === 0 ? '$ 0.00' : (simulation().seguro | customNumber)" />
+
+          </div>
+          <div class="acr_card">
+            <div>
+              <app-icon [arrayIcon]="icon5()"></app-icon>
+              <app-title type="sub" [label]="'Monto'" />
+            </div>
+            <app-title type="tit" [label]="simulation().monto === 0 ? '$ 0.00' : (simulation().monto | customNumber)" />
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

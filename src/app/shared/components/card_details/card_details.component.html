@@ -1,0 +1,14 @@
+@if (cardArray()) {
+<div class="acr_card">
+  <div class="acr_card_header">
+    <app-title type="sub" [label]="cardArray().title" weight="500" />
+    <span class="acr_icon"><i [style.color]="cardArray().coloricon" class='{{cardArray().icon}}'></i></span>
+  </div>
+  <div class="acr_card_body">
+    <app-title type="tit" [label]="cardArray().subtitle" font="var(--fs-sm)" weight="700" />
+    <app-title type="sub" [label]="cardArray().description" weight="500" font="var(--fs-xxs)" />
+  </div>
+</div>
+}
+
+

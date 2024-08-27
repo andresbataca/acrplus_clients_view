@@ -1,0 +1,8 @@
+<div class="acr-container_faq" *Ske="skeleton(); repeat: numberArray width:'rand' height:'40px' type:'multiple'">
+  @for (item of arrayQuestions(); track item.id) {
+  <div [accordion]="true" class="acr-accordion">{{item.question}}</div>
+  <div class="acr-accordion_content">
+    <p [innerHtml]="item.answer"></p>
+  </div>
+  }
+</div>

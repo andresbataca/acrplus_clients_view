@@ -1,0 +1,60 @@
+//! Efecto de caida
+@mixin efectocaida($time) {
+  opacity: 0;
+  animation: fadeInUp;
+  animation-fill-mode: forwards;
+  animation-duration: 0.8s;
+  animation-delay: $time;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    -o-transform: translateY(20px);
+}
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+//! Efecto de subida
+@mixin efectosubida($time) {
+  opacity: 0;
+  animation: fade-in-down;
+  animation-fill-mode: forwards;
+  animation-duration: 0.8s;
+  animation-delay: $time;
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+//! Efecto bounce
+.bounce {
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+    50% { transform:translateY(0%); }
+    80% { transform:translateY(-15%); }
+    90% { transform:translateY(0%); }
+    95% { transform:translateY(-7%); }
+    97% { transform:translateY(0%); }
+    99% { transform:translateY(-3%); }
+    100% { transform:translateY(0); }
+}

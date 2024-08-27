@@ -1,0 +1,79 @@
+@import '../../../../styles.scss';
+
+.acr_form{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 350px;
+
+  &_header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &_body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+.acr_card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--sidebar-color-fondo);
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.0392156863), 0 0 4px rgba(0, 0, 0, 0.2509803922);
+  border-radius: 5px;
+  padding: 20px;
+
+  .acr_card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .acr_icon {
+    display: flex;
+    align-items: center;
+
+    svg {
+      font-size: 30px;
+      color: var(--color-text);
+    }
+  }
+}
+
+.acr_input{
+  border:none;
+  border-bottom: 1px solid var(--color-text);
+  padding: 5px 10px;
+  outline: none;
+  width: 100%;
+
+  &:disabled {
+    background-color: transparent;
+    cursor: not-allowed;
+    opacity: .2;
+  }
+}
+
+span{
+  display: block;
+  margin-bottom: 20px;
+  .acr_icon{
+    font-size: 25px;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+}
+
+.acr_menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}

@@ -1,0 +1,130 @@
+@import '../../../../styles.scss';
+
+.acr_nav_text {
+  font-size: $fs-links;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 1;
+  // transition: $tran-02;
+  color: var(--color-text);
+}
+
+.acr_nav_link {
+  position: relative;
+  height: 40px;
+  margin-bottom: 2px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  // transition: $tran-02;
+  border-radius: 5px;
+  margin-right: 2px;
+
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: $fs-sm;
+  }
+
+  .icon,
+  .acr_nav_text {
+    color: var(--color-text);
+    // transition: $tran-02 ;
+
+  }
+
+  a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: var(--fondo-link);
+
+    .icon,
+    .acr_nav_text {
+      color: var(--color-text-hover);
+    }
+  }
+}
+
+.acr_nav_link.active {
+  background-color: var(--fondo-link);
+  border-radius: 5px;
+
+  a {
+
+    span,
+    .icon {
+      color: var(--color-text-hover);
+    }
+  }
+}
+
+// zona acordeon
+.acr_accordion {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+
+  //parte diferencial
+  .acr_accordion_body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background-color: var(--fondo-submenu);
+    border-radius: 6px;
+
+    .acr_nav_link_esp.active {
+      background-color: var(--fondo-link);
+      border-radius: 6px;
+
+      a {
+        span,
+        .icon {
+          color: var(--color-text-hover);
+        }
+      }
+    }
+
+    .acr_nav_link_esp {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        display: flex;
+        padding: 10px 0;
+        border-radius: 6px;
+
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-width: 60px;
+        }
+
+        .icon,
+        .acr_nav_text {
+          color: var(--color-text);
+          font-size: $fs-xs;
+        }
+
+        &:hover {
+          background-color: var(--fondo-link);
+
+          .icon,
+          .acr_nav_text {
+            color: var(--color-text-hover);
+          }
+        }
+      }
+    }
+  }
+}

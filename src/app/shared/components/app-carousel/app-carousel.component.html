@@ -1,0 +1,54 @@
+<div class="acr_carousel">
+
+  @for (item of items; track item.id) {
+  <div [ngClass]="{'image-active':selectedIndex() === $index}" class="acr_carousel_items">
+
+    <div
+    class="acr_carousel_body slideShow"
+    [ngStyle]="{'background-image': 'url(' + item.imgFondo + ')'}">
+      <img
+      style="width: 100%;"
+      [src]=""
+      alt="">
+    </div>
+
+    <div class="acr_carousel_logo">
+      <!-- <p>Mi Cuota</p> -->
+      <img src="https://creditoacr.com/wp-content/uploads/2022/12/Recurso-1.png" alt="">
+    </div>
+
+
+  </div>
+  }
+
+  @if (indicators) {
+  <div class="acr_dots">
+    @for (item of items; track $index) {
+    <span cLass="acr_dot" [ngClass]="{'active': selectedIndex() === $index}" (click)="selectImage($index)">
+    </span>
+    }
+  </div>
+  }
+
+  @if (controls) {
+  <div class="acr_carousel_btn btn-prev" (click)="onPrevClick()">
+    <i class="fa-solid fa-chevron-down one icon-carousel icon-prev"></i>
+  </div>
+  }
+
+  @if (controls) {
+  <div class="acr_carousel_btn btn-next" (click)="onNextClick()">
+    <i class="fa-solid fa-chevron-down one icon-carousel icon-next"></i>
+  </div>
+  }
+
+</div>
+
+
+
+
+
+    <!-- <ng-container *ngTemplateOutlet="template"></ng-container> -->
+
+    <!-- <ng-template [ngTemplateOutlet]="templateRef">
+    </ng-template> -->

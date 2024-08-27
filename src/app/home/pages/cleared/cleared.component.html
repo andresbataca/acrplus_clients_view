@@ -1,0 +1,57 @@
+<!-- <app-header-title [titleArray]="titleHeader1"></app-header-title> -->
+
+<div class="acr_cont">
+
+  <div class="div-1">
+    <div class="acr_req">
+      <div class="acr_description">
+
+        <div class="acr_description_header">
+          <app-title type="tit" [label]="'Descripción'" weight="700" font="var(--fs-sm)" />
+          <app-title type="sub" [label]="'Este certificado acredita que el titular ha saldado todas sus obligaciones financieras con la entidad y se encuentra al día en sus compromisos.'" />
+        </div>
+
+        <div class="acr_cards">
+          <app-card-button [cardArray]="card7()"></app-card-button>
+          <app-card-button [cardArray]="card8()"></app-card-button>
+          <app-card-button [cardArray]="card9()"></app-card-button>
+          <app-card-button [cardArray]="card10()"></app-card-button>
+        </div>
+
+      </div>
+
+      <!-- <div class="acr_requirements">
+        <app-title type="tit" [label]="'Requisitos para el Certificado de Paz y Salvo'" />
+        <ul>
+          <li>
+            <app-title type="sub" [label]="'Estar a paz y salvo con la entidad.'" />
+          </li>
+          <li>
+            <app-title type="sub" [label]="'No pasar de 180 días.'" />
+          </li>
+        </ul>
+      </div> -->
+
+    </div>
+  </div>
+
+  <div class="div-2">
+
+    <form (ngSubmit)="getSubmit()" [formGroup]="clearedForm" class="acr_form">
+      <div class="acr_form_header">
+        <app-title type="tit" [label]="'Certificado'" weight="600" font="var(--fs-sm)" />
+        <app-title type="sub" [label]="'Completa el formulario para solicitar su Certificado de Paz y Salvo, asegúrese de cumplir con todas las obligaciones pendientes.'" />
+      </div>
+
+      <app-select [form]="clearedForm" [arraySelect]="arraySelect1"></app-select>
+      <app-input [form]="clearedForm" [arrayInput]="arrayInput1"></app-input>
+      <app-input [form]="clearedForm" [arrayInput]="arrayInput3"></app-input>
+
+      <div class="">
+        <app-button [buttonArray]="newButton()" [myForm]="clearedForm.valid"></app-button>
+      </div>
+    </form>
+
+  </div>
+</div>
+

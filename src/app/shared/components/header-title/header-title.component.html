@@ -1,0 +1,7 @@
+@if (titleArray()) {
+  <div [style.width]="titleArray().width" class="acr_header">
+    <app-title type="tit" [label]="titleArray().title" weight="600" font="var(--fs-sm)" />
+    <app-title type="sub" [label]="titleArray().subtitle" font="var(--fs-base)"/>
+  </div>
+}
+

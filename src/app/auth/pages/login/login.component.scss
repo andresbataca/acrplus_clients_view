@@ -1,0 +1,95 @@
+@import '../../../../styles.scss';
+
+.acr_cont{
+
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    // background-image: url(https://creditoacr.com/wp-content/uploads/2022/09/Group-245.png);
+    // background-repeat: no-repeat;
+    // background-size: 170px,250px;
+    // background-position: bottom right 10px,bottom right;
+
+
+    .acr-form_cont{
+        @include efectocaida($time: 0.2s);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .acr_form_register{
+      span{
+        font-size: $fs-links;
+        color: var(--color-text);
+        a{
+            text-decoration: none;
+            font-size: $fs-base;
+            color: var(--primary-color-neutro);
+        }
+    }
+    }
+
+    .acr_form{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 350px;
+      padding: 20px;
+      color: var(--color-text);
+    }
+    .acr_form_header {
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .acr_form_img {
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 60px;
+          // border-radius: 50%;
+        }
+      }
+
+      .acr_form_title {
+        h2 {
+          font-size: $fs-lg;
+          text-align: center;
+          line-height: 30px;
+          color: var(--color-text);
+        }
+      }
+
+      .acr_form_subtitle {
+        h2 {
+          font-size: $fs-links;
+          text-align: center;
+          font-weight: 300;
+          color: var(--color-text);
+        }
+      }
+    }
+
+    .acr_form_recovery {
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        animation: bounce 1s ease;
+        -webkit-animation: bounce 1s ease;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: $fs-links;
+        color: var(--color-text);
+        cursor: pointer;
+      }
+    }
+
+}

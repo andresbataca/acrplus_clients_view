@@ -1,0 +1,93 @@
+@if ( homeState.getData() === 'inicio') {
+  <div class="acr_cont">
+
+    <div class="div-1">
+      <div class="acr_welcome" *Ske="skeleton(); height:'150px' type:'single'">
+        <div class="acr_welcome_body">
+          <app-title type="tit" [label]="'¡Bienvenido, '+name()+'!'" weight="800" font="var(--fs-sm)" />
+          <app-title type="sub" [label]="'¡Aquí tienes un resumen de tus transacciones!'" weight="400" font="var(--fs-base)" />
+        </div>
+        <div class="acr_welcome_img">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="div-2">
+      <div class="acr_cupo">
+        <div class="acr_cupo_body"
+          *Ske="skeleton(); heightLabel:'18px' widthLabel:'130px' widthInput:'200px' heightInput:'35px' type: 'label-input'">
+          <app-title type="tit" [label]="data()[0]?.totalQuota | customNumber" font="var(--fs-xxl)" />
+          <app-title type="tit" label="Mi cupo disponible" color="var(--secondary-color-3)" />
+        </div>
+
+        <div class="acr_cupo_footer" *Ske="skeleton(); height:'100px' type:'single'">
+          <app-title type="sub"
+            label="Tu cupo disponible te abre un mundo de posibilidades. ¡Atrévete a soñar en grande y conquista tus sueños con determinación!" />
+        </div>
+      </div>
+    </div>
+
+    <div class="div-3">
+      <div class="acr_details" *Ske="skeleton(); height:'230px' type:'single'">
+        <app-title type="tit" [label]="'Detalles'" font="var(--fs-sm)" />
+
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <span style="color:  var(--secondary-color-1)"><i class="fa-solid fa-coins"></i></span> <span>Saldo total a pagar:</span>
+              </td>
+              <td>{{data()[0]?.totalPayment | customNumber}}</td>
+              <td>
+                <app-button-menu [buttonArray]="buttonMenu1()"></app-button-menu>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: var(--secondary-color-2);"><i class="fa-solid fa-sack-dollar"></i></span> <span>Pago mínimo:</span>
+              </td>
+              <td>{{data()[0]?.minimalPayment | customNumber}}</td>
+              <td>
+                <app-button-menu [buttonArray]="buttonMenu2()"></app-button-menu>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color: var(--primary-color-neutro)"><i class="fa-solid fa-sack-xmark"></i></span> <span>Valor en mora:</span>
+              </td>
+              <td>{{data()[0]?.arrearValue| customNumber}}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <span style="color:  var(--secondary-color-3);"><i class="fa-regular fa-clock"></i></span> <span>Fecha límite de pago:</span>
+              </td>
+              <td>{{data()[0]?.limitDateToPay === null ? '00/00/00' : data()[0].limitDateToPay | date: 'dd/MM/yyyy' }}
+              </td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <div class="div-4">
+      <div class="acr_menu">
+        <app-card-item *Ske="skeleton(); height:'135px' type:'single'" [cardArray]="cardPs()"></app-card-item>
+        <app-card-item *Ske="skeleton(); height:'135px' type:'single'" [cardArray]="cardSc()"></app-card-item>
+        <app-card-item *Ske="skeleton(); height:'135px' type:'single'" [cardArray]="cardPy()"></app-card-item>
+        <app-card-item *Ske="skeleton(); height:'135px' type:'single'" [cardArray]="cardCont()"></app-card-item>
+      </div>
+    </div>
+
+  </div>
+}@else if(homeState.getData() === 'pse') {
+  <app-pay-pse [ubication]="'home'"></app-pay-pse>
+}@else if(homeState.getData() === 'binance') {
+  <app-pay-binance [ubication]="'home'"></app-pay-binance>
+}
+
+

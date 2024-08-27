@@ -1,0 +1,13 @@
+@import '../../../../styles.scss';
+
+.acr_title{
+  font-size: $fs-base;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.acr_subtitle{
+  font-size: $fs-xs;
+  color: var(--color-text);
+  font-weight: 400;
+}

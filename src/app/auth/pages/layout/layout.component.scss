@@ -1,0 +1,50 @@
+.acr_cont {
+  display: flex;
+  height: 100vh;
+  background: var(--fondo-home);
+
+  &_left {
+      flex-basis: 65%;
+  }
+
+  &_right {
+      flex-basis: 35%;
+  }
+}
+
+.acr_carousel_logo {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  p{
+      // background-image: linear-gradient(180deg,#BD1117 0%,#FF0000 100%);
+      // -webkit-background-clip: text;
+      // background-clip: text;
+      // color: transparent;
+      color: var(--primary-color-neutro);
+      font-size: 3rem;
+      font-weight: bolder;
+      line-height: 48px;
+  }
+
+  img {
+      width: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .acr_cont{
+      justify-content: center;
+      align-items: center;
+      &_left {
+          display: none;
+      }
+  }
+}
+

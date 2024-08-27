@@ -1,0 +1,26 @@
+@if (cardArray()) {
+<div class="acr_card" [formGroup]="form">
+  <div class="acr_card_header">
+    <app-title type="sub" [label]="cardArray().title" weight="500" />
+    <input
+    [formControlName]="cardArray().controlName"
+    type="radio"
+    name="check"
+    [value]="cardArray().value">
+  </div>
+  <span  class="acr_icon"><i [style.color]="cardArray().coloricon" class='{{cardArray().icon}}'></i></span>
+  <div class="acr_card_body">
+    @if (cardArray().controlNameSpecial) {
+      <input
+      (input)="utilities.formatoNumerico($event,form,cardArray().controlNameSpecial);"
+      [formControlName]="cardArray().controlNameSpecial"
+      class="acr_input"
+      type="text"
+      placeholder="Monto"
+      >
+    }@else {
+      <app-title type="tit" [label]="cardArray().subtitle" font="var(--fs-sm)" weight="700" />
+    }
+  </div>
+</div>
+}

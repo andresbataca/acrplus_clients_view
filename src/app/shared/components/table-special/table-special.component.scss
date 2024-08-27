@@ -1,0 +1,63 @@
+@import '../../../../styles.scss';
+
+.acr-cont{
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0;
+
+  thead {
+      th {
+          text-align: left;
+          border-bottom: 1px solid var(--border-color);
+      }
+  }
+
+  tbody {
+      td {
+          border-bottom: 1px solid var(--border-color);
+          font-weight: normal;
+          line-height: 20px;
+      }
+
+      tr:last-child {
+          td {
+              border-bottom: none;
+          }
+      }
+
+      tr:nth-child(even) {
+        td {
+          background-color: var(--fondo-submenu);
+        }
+      }
+  }
+
+  td,
+  th {
+      padding: 10px 10px;
+      color: var(--color-text);
+      font-size: $fs-xs;
+  }
+}
+
+
+.acr_actions{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  .acr_current{
+    color: var(--color-text);
+    font-size: $fs-xs;
+  }
+  .acr_button{
+    display: flex;
+    color: var(--color-text);
+    font-size: $fs-sm;
+    cursor: pointer;
+  }
+}

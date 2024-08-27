@@ -1,0 +1,113 @@
+@if (resposeOKapi()) {
+
+<div *ngFor="let item of sorteos()" class="acr_cont">
+
+  <div [accordion]="true" class="acr_expand">
+    {{item.contest_name}}
+  </div>
+
+  <div class="acr_beneficts">
+
+    <picture class="acr_beneficts_header">
+      <source media="(max-width: 1094px)" srcset="{{item.contest_img_promo_responsive}}" />
+      <img style="width: 400px; border-radius: 5px;" src="{{item.contest_img_promo}}" alt="" />
+    </picture>
+
+    <div class="acr_beneficts_body">
+      <!-- <h4 [innerHTML]="item.contest_description"></h4> -->
+      <div>
+        <app-title type="tit" [label]="item.contest_name" />
+        <app-title type="sub" [label]="item.contest_description" />
+      </div>
+
+      <div class="acr_chances " *ngFor="let items of item.itemsArray, index as i">
+        <div class="div1">
+          <app-title type="sub" [label]="'Fecha de la compra'"  [weight]="'900'"/>
+          <app-title type="sub" [label]="items.compra.contest_date" />
+        </div>
+
+        <div class="div2">
+          <app-title type="sub" [label]="'Establecimiento'"  [weight]="'900'"/>
+          <app-title type="sub" [label]="items.compra.shop_name" />
+        </div>
+
+        <div class="div3">
+          <app-title type="sub" [label]="'Valor de la compra'"  [weight]="'900'"/>
+          <app-title type="sub" [label]="items.compra.contest_amount | number" />
+        </div>
+
+        <div class="div4">
+          <h5>Oportunidades de participación</h5>
+          <div style="display: flex; flex-direction: column; width: 150px;">
+            <p *ngFor="let ticket of items.tickets, index as j">No.{{j + 1}}: {{ticket}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+}@else {
+<div class="acr_nobeneficts">
+  <app-title type="tit" [label]="'Aún no estás participando en ningún concurso'" />
+  <i class='bx bxs-message-alt-error'></i>
+ <div class="acr_nobeneficts_body">
+  <app-title type="sub" [label]="'Si quieres participar en alguno de nuestros concursos, valida'" />
+  <a [routerLink]="['../contest']" > Aquí </a>
+ </div>
+</div>
+}
+
+
+<!-- <div *ngFor="let item of sorteos" class="acr_cont">
+
+  <div class="question" accordion class="accordion">
+    {{item.contest_name}}
+</div>
+
+<div class="acr_beneficts">
+    <picture>
+        <source media="(max-width: 1094px)" srcset="{{item.contest_img_promo_responsive}}" />
+        <img src="{{item.contest_img_promo}}" alt="" />
+    </picture>
+    <div class="acr_beneficts">
+        <h4 [innerHTML]="item.contest_description"></h4>
+
+        <div class="acr_card">
+            <div class="parent" *ngFor="let items of itemsArray, index as i">
+                <div class="div1">
+                    <h5>Fecha de la compra:</h5>
+                    <p>{{items.compra.contest_date}}</p>
+                </div>
+
+                <div class="div2">
+                    <h5>Establecimiento</h5>
+                    <p>{{items.compra.shop_name}}</p>
+                </div>
+
+                <div class="div3">
+                    <h5>Valor de la compra</h5>
+                    <p>{{items.compra.contest_amount | number}}</p>
+                </div>
+
+                <div class="div4">
+                    <h5>Oportunidades de participación</h5>
+                    <div style="display: flex; flex-direction: column; width: 150px;">
+                        <p *ngFor="let ticket of items.tickets, index as j">No.{{j + 1}}: {{ticket}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h4 class="h4Special">Conoce nuestras tiendas aliadas</h4>
+
+        <a href="https://creditoacr.com/tiendas-aliadas/" target="_blank">
+            Aquí
+        </a>
+    </div>
+</div>
+</div> -->

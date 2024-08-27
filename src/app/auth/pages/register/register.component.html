@@ -1,0 +1,44 @@
+<section class="acr_cont">
+
+  <app-dark-mode Mode="simple" [styles]="{'position': 'absolute', 'top': '10px', 'right': '10px', 'padding': '15px'}"></app-dark-mode>
+
+  <div class="acr_form_cont">
+    <form (ngSubmit)="getSubmit()" [formGroup]="dataForm" class="acr_form">
+
+      <div class="acr_form_header">
+        <div class="acr_form_img">
+          <img src="https://creditoacr.com/wp-content/uploads/2023/04/Logo-peq-Credito-ACR-.png" alt="">
+        </div>
+
+        <div class="acr_form_title">
+          <h2>Regístrate</h2>
+        </div>
+
+        <div class="acr_form_subtitle">
+          <h2>Ingresa los siguientes datos</h2>
+        </div>
+        
+      </div>
+      <app-select [form]="dataForm" [arraySelect]="arrayEmpleadoSelect1"></app-select>
+      <app-input [form]="dataForm" [arrayInput]="arrayInput1"></app-input>
+      <app-input [form]="dataForm" [arrayInput]="arrayInput2"></app-input>
+      <app-input [form]="dataForm" [arrayInput]="arrayInput3"></app-input>
+
+      <div class="acr_form_input_check">
+        <input [formControlName]="'term'" type="checkbox">
+        <label for="">Acepto las políticas de privacidad y tratamientos de datos de la compañía.</label>
+      </div>
+
+
+      <div style="width: 100%">
+        <app-button [buttonArray]="newButtonData1" [myForm]="dataForm.valid"></app-button>
+      </div>
+
+    </form>
+    <div class="acr_form_register">
+      <span>Ya tienes una cuenta?<a routerLink="/auth/login" class=""> Inicia sesión</a></span>
+    </div>
+  </div>
+
+</section>
+

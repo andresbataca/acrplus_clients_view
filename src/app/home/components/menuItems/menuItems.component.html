@@ -1,0 +1,36 @@
+
+
+@for (link of items; track $index) {
+    <li
+    class="acr_nav_link"
+    [accordion]="link.subLinks"
+    (click)="handleOptions(link.subLinks)"
+    routerLinkActive="active"
+    >
+      <a
+      [routerLink]="link.routerLink ? link.routerLink : null"
+      (click)="link.method ? link.method() : null"
+      >
+        <i [class]="link.icon" ></i>
+        <span class="acr_nav_text">{{ link.text }}</span>
+      </a>
+      @if (link.subLinks) {
+            <span><i class='bx bx-chevron-down icon'></i></span>
+      }
+    </li>
+
+    @if (link.subLinks) {
+      <section class="acr_accordion">
+        <div class="acr_accordion_body">
+          @for (subLink of link.subLinks; track $index) {
+            <li class="acr_nav_link_esp" (click)="isMobile() ? toggleService.toggleMenu() : null" routerLinkActive="active">
+              <a [routerLink]="subLink.routerLink">
+                <i class='bx' [ngClass]="'bx-' + subLink.icon + ' icon'"></i>
+                <span class="acr_nav_text">{{ subLink.text }}</span>
+              </a>
+            </li>
+          }
+        </div>
+      </section>
+    }
+}

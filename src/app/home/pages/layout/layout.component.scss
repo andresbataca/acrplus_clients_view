@@ -1,0 +1,285 @@
+@import '../../../../styles.scss';
+
+/**/
+
+.acr-cont {
+  height: 100vh;
+  background-color: var(--fondo-home);
+}
+
+/*   */
+.acr_sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding: 10px 10px 10px 16px;
+  transition: width $tran-03;
+  z-index: 80;
+  box-shadow: var(--box-shadow-color);
+  background: var(--sidebar-color-fondo);
+
+  .acr_menu {
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    visibility: hidden;
+    @include scrollHelp;
+
+    .acr_menu_body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 40px;
+
+    }
+  }
+
+  .acr_menu_body,
+  .acr_menu:hover,
+  .acr_menu:focus {
+    visibility: visible;
+  }
+
+  header {
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+    .acr_header {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0px 0 10px 0;
+
+      .acr_logo {
+        min-width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 35px;
+        }
+      }
+
+      .acr_header_text {
+        display: flex;
+        flex-direction: column;
+
+        .acr_username {
+          white-space: nowrap;
+          opacity: 1;
+          color: var(--color-text);
+          transition: opacity $tran-02;
+          font-size: $fs-sm;
+          font-weight: 600;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.acr_dash {
+
+  float: right;
+  width: calc(100% - 250px);
+  transition: width $tran-03;
+
+  .acr_dash_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    background-color: var(--fondo-home);
+    z-index: 99;
+
+    .acr_dash_navbar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      span {
+        display: flex;
+        width: 35px;
+        height: 35px;
+        background-color: var(--primary-color-neutro);
+        color: #fff;
+        justify-content: center;
+        border-radius: 50%;
+        align-items: center;
+
+        i {
+          font-size:$fs-md;
+          cursor: pointer;
+          z-index: 100;
+        }
+      }
+
+      i {
+        font-size: $fs-xl;
+        cursor: pointer;
+        z-index: 100;
+        color: var(--color-text);
+
+      }
+
+      .acr_dash_title {
+        font-size: $fs-sm;
+        font-weight: 600;
+        color: var(--color-text);
+      }
+    }
+
+    .acr_dash_perfil {
+      display: flex;
+      align-items: center;
+      color: var(--color-text);
+
+      .acr_dash_user {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+
+        .user_name {
+          font-size: $fs-links;
+          line-height: 16px;
+
+          span {
+            font-weight: 600;
+          }
+        }
+
+        .user_rol {
+          font-size: $fs-xs;
+          font-weight: 300;
+          line-height: 16px;
+        }
+      }
+
+      .acr_avatar {
+        font-size: $fs-links;
+        display: flex;
+        width: 35px;
+
+        svg {
+          color: var(--primary-color-neutro);
+          font-size: $fs-xl;
+        }
+
+        img {
+          width: 35px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+  }
+
+  .acr_dash_route {
+    padding: 50px 65px;
+    background: var(--fondo-home);
+
+    position: relative;
+    z-index: 1;
+  }
+
+}
+
+.acr_toogle {
+  width: 88px;
+
+  header {
+    .acr_header{
+      .acr_header_text {
+        .acr_username {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  & ~.acr_dash {
+    left: 88px;
+    width: calc(100% - 88px);
+
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .acr_sidebar {
+    left: -250px;
+    margin-top: 65px;
+    transition: left $tran-03;
+
+    & ~.acr_dash {
+      left: 0px;
+      width: 100%;
+    }
+  }
+
+  .acr_dash {
+    left: 0px;
+    width: 100%;
+
+    .acr_dash_header {
+      position: fixed;
+      width: 100%;
+      padding: 15px 15px;
+
+      .acr_dash_perfil {
+        gap: 20px;
+
+        .acr_dash_user {
+          gap: 10px;
+
+          .mode {
+            margin-right: 0px;
+          }
+
+          .change {
+            margin-right: 0px;
+          }
+
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .acr_dash_route {
+      padding: 100px 20px;
+    }
+  }
+
+  .acr_toogle {
+    width: 250px;
+    height: calc(100% - 65px);
+    left: 0;
+    margin-top: 65px;
+
+    header {
+      .acr_header{
+        .acr_header_text {
+          .acr_username {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+

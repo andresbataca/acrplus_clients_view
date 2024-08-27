@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+
+
+.acr_cont{
+
+}
+
+.acr_header{
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 25px 0;
+  gap: 5px;
+  border-bottom: 1px solid var(--border-color);
+  img{
+    width: 100px;
+    border-radius: 10px;
+  }
+}
+
+.acr_body{
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0 0 0;
+  gap: 10px;
+
+}

@@ -1,0 +1,78 @@
+@import '../../../../styles.scss';
+
+@mixin box-style {
+  border-radius: 10px;
+  position: relative;
+  transition: $tran-03;
+  background-color: var(--fondo-box);
+}
+
+@mixin switch-style {
+  position: relative;
+  background-color: var(--toggle-color-fondo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+@mixin mode-dark {
+  display: flex;
+  background-color: var(--primary-color-neutro);
+  padding: 6px 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+@mixin mode-light {
+  display: flex;
+  background-color: transparent;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.acr-light {
+  @include box-style;
+
+  .acr_switch {
+    @include switch-style;
+
+    .acr_sun {
+      @include mode-dark;
+    }
+
+    .acr_moon {
+      @include mode-light;
+    }
+
+  }
+}
+
+.acr-dark {
+  @include box-style;
+
+  .acr_switch {
+    @include switch-style;
+
+    .acr_moon {
+      @include mode-dark;
+    }
+
+    .acr_sun {
+      @include mode-light;
+    }
+
+  }
+}
+
+
+
+.acr_mod_simple {
+  cursor: pointer;
+
+  span {
+    color: var(--color-text);
+    display: flex;
+  }
+}

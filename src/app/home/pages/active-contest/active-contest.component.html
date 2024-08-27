@@ -1,0 +1,48 @@
+<div class="acr_cont">
+
+  @if (responseApi()) {
+  <div class="acr_contest">
+    <div class="acr_contest_header">
+      <app-header-title [titleArray]="titleHeader1"></app-header-title>
+    </div>
+
+    @for (item of sorteos(); track $index) {
+      <div class="acr_contest_body">
+        <picture class="acr_contest_img">
+          <a target="_blank" [href]="item.contest_img_promo_responsive">
+            <source media="(max-width: 1094px)" [srcset]="item.contest_img_promo_responsive" />
+          </a>
+          <a target="_blank" [href]="item.contest_img_promo">
+            <img src="https://creditoacr.com/wp-content/uploads/slider3/Slide-responsive-viaje-para-pap.jpeg" style="width: 100%; border-radius: 5px;" alt="" />
+            <!-- <img [src]="item.contest_img_promo" style="width: 100%; border-radius: 5px;" alt="" /> -->
+          </a>
+        </picture>
+
+        <div class="acr_contest_descp">
+          <div class="acr_contest_descp_body">
+            <div class="acr_contest_text">
+              <app-title type="tit" [label]="item.contest_name" />
+              <app-title type="sub" [label]="item.contest_description" />
+            </div>
+            <div class="acr_contest_button">
+              <a class="button-23" [href]="item.contest_email_link_url" target="_blank">Conoce más</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    }
+
+  </div>
+
+  }@else {
+  <div class="acr_nocontest">
+    <app-title type="tit" [label]="'En el momento no tenemos concursos activos'" />
+    <i class='bx bxs-message-alt-error'></i>
+  </div>
+  }
+
+</div>
+
+<app-loader></app-loader>
+

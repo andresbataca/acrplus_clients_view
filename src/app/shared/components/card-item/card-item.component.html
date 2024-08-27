@@ -1,0 +1,32 @@
+@if (cardArray) {
+<div class="acr_card_base" [routerLink]="cardArray.route? cardArray.route : null" [ngStyle]="{'border-radius': cardArray.optionFooter === 'footerSpecial' ? '5px' : ''}">
+  <div  class="acr_card">
+    <div class="acr_card_cont">
+      @if (cardArray.optionImg === 'icon') {<i [style.color]="cardArray.coloricon" class='{{cardArray.icon}}'></i>}
+      @else if(cardArray.optionImg === 'img'){<img src="{{cardArray.img}}" alt="">}
+      <div class="acr_card_body">
+        <app-title [label]="cardArray.title" type="tit"/>
+        <app-title [label]="cardArray.subtitle" type="sub"/>
+      </div>
+    </div>
+    @if (cardArray.optionFooter === 'footer') {
+      <div class="acr_card_footer">
+        <i class='bx bx-notepad icon'></i>
+      </div>
+    }@else if(!cardArray.route && cardArray.optionFooter === 'button'){
+      <div class="acr_card_button">
+        <button (click)="cardArray.onMethodAction()" [ngStyle]="{ 'background': cardArray.colorButtom, 'border-color': cardArray.colorButtom, 'color' : cardArray.btnColorText }" class="button-37">
+          {{cardArray.button}}
+        </button>
+      </div>
+    }
+  </div>
+  @if (!cardArray.route && cardArray.optionFooter === 'footerSpecial') {
+    <div class="acr_footer_special" [ngStyle]="{'background': cardArray.colorButtom}" >
+      <button (click)="cardArray.onMethodAction()" [ngStyle]="{ 'background': cardArray.colorButtom, 'border-color': cardArray.colorButtom, 'color' : cardArray.btnColorText }" class="button-6">
+        {{cardArray.button}}
+      </button>
+    </div>
+  }
+</div>
+}

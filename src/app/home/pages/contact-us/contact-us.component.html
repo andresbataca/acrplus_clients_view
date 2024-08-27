@@ -1,0 +1,44 @@
+<div class="acr_cont">
+
+  <div class="div-1">
+    <div class="acr_channels">
+      <div class="acr_channels_header">
+        <app-title type="tit" [label]="'Nuestros Canales'" weight="700" font="var(--fs-sm)" />
+        <app-title type="sub" [label]="'Un equipo de trabajo altamente capacitado y comprometido a atender todas tus necesidades de manera eficiente. Contactanos durante nuestro horario de atención para recibir un servicio excepcional y personalizado.'" />
+      </div>
+
+      <div class="acr_cards">
+        <app-card-button [cardArray]="card7()"></app-card-button>
+        <app-card-button [cardArray]="card8()"></app-card-button>
+        <app-card-button [cardArray]="card9()"></app-card-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="div-2">
+    <form (ngSubmit)="getSubmit()" [formGroup]="contactForm" class="acr_form">
+      <div class="acr_form_header">
+        <app-title type="tit" [label]="'Contacto'" weight="600" font="var(--fs-sm)" />
+        <app-title type="sub" [label]="'Completa este formulario y estaremos encantados de ayudarte con cualquier consulta o inquietud que tengas'" weight="400" />
+      </div>
+
+      <div class="acr_form_body">
+        <app-select [form]="contactForm" [arraySelect]="arraySelect1"></app-select>
+        <app-input [form]="contactForm" [arrayInput]="arrayInput1"></app-input>
+        <app-input [form]="contactForm" [arrayInput]="arrayInput3"></app-input>
+        <app-input [form]="contactForm" [arrayInput]="arrayInput4"></app-input>
+
+        <div class="acr-msg">
+          <textarea spellcheck="false" formControlName="msg" required cols="20" rows="3" placeholder="Mensaje"></textarea>
+        </div>
+
+        <div class="">
+          <app-button [buttonArray]="newButton()" [myForm]="contactForm.valid"></app-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+

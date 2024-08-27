@@ -1,0 +1,22 @@
+@if (Mode == 'especial') {
+  <ul [ngClass]="isMoodDark? 'acr-dark' : 'acr-light'">
+    <div class="acr_mod_especial" (click)="toggleTheme()">
+        <span class="acr_switch">
+            <span class="acr_moon"><i class='bx bx-moon'></i></span>
+            <span class="acr_sun"><i class='bx bx-sun'></i></span>
+        </span>
+    </div>
+  </ul>
+}
+
+@if (Mode == 'simple') {
+  <div (click)="toggleTheme()" class="acr_mod_simple" [ngStyle]="styles">
+    @if (isMoodDark) {
+      <span [ngStyle]="{'font-size': sizeSimple}"><i class='bx bx-moon'></i></span>
+    }@else{
+      <span [ngStyle]="{'font-size': sizeSimple}"><i class='bx bx-sun'></i></span>
+    }
+  </div>
+}
+
+

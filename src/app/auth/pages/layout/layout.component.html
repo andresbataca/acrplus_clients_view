@@ -1,0 +1,17 @@
+<section class="acr_cont">
+  <div class="acr_cont_left">
+      <app-carousel
+      [items]="carouselData"
+      [autoSlide]="true"
+      [indicators]="true"
+      [controls]="false"
+      [slideInterval]="8000"
+      >
+      </app-carousel>
+  </div>
+  <div class="acr_cont_right">
+      <router-outlet></router-outlet>
+  </div>
+</section>
+
+<app-modal></app-modal>

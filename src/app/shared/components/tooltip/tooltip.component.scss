@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+
+.acr_tooltip{
+  // width: 300px;
+  // height: 100px;
+  @include efectocaida($time: 0.2s);
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background-color: rgb(253 242 242 / 1);
+  border: 1px solid #e3c6c7;
+  border-radius: 5px;
+  color: #676060;
+
+  span{
+    color: red;
+    cursor: pointer;
+  }
+
+  h5{
+    font-size:$fs-links;
+  }
+  p{
+    font-size: $fs-xs;
+  }
+}

@@ -1,0 +1,42 @@
+@import '../../../../styles.scss';
+
+.acr_card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+
+  &_header{
+    img{
+      width: 40px;
+      display: flex;
+    }
+    span{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      svg{
+        font-size: 25px;
+        // color: var(--color-text-check);
+      }
+    }
+  }
+
+  &_body{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+
+}
+
+.acr_disable{
+  pointer-events: none;
+}

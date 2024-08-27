@@ -1,0 +1,67 @@
+<div class="acr-cont">
+  <nav class="acr_sidebar" [class.acr_toogle]="toggleService.getToogle">
+      <header>
+          <div class="acr_header">
+              <span class="acr_logo">
+                  <img src="https://creditoacr.com/wp-content/uploads/2023/04/Logo-peq-ACR-cuadrado.png" alt="">
+              </span>
+
+              <div class="acr_text acr_header_text">
+                  <span class="acr_username">Acr Plus</span>
+              </div>
+          </div>
+      </header>
+
+      <div class="acr_menu">
+          <div class="acr_menu_body">
+                <app-menu-items [items]="menuLinks" ></app-menu-items>
+                <app-menu-items [items]="logout" ></app-menu-items>
+          </div>
+      </div>
+  </nav>
+
+  <div class="acr_dash">
+      <div class="acr_dash_header">
+
+        <div class="acr_dash_navbar" >
+         <i class='bx bx-menu' (click)="toggleService.toggleMenu()"></i>
+          <p class="acr_dash_title">Dashboard</p>
+        </div>
+
+         <div class="acr_dash_perfil">
+          <div class="acr_dash_user">
+              <app-dark-mode Mode="especial"></app-dark-mode>
+
+              <div>
+                  <p class="user_name">Hola, <span>{{usuario.name}}</span></p>
+                  <p class="user_rol">Bienvenido</p>
+              </div>
+
+              <span class="acr_avatar">
+                @if (usuario.photo) {
+                  <a [routerLink]="'./user'">
+                    <img [src]="usuario.photo" alt="">
+                  </a>
+                }
+                @else {
+                  <a [routerLink]="'./user'">
+                    <i class="fa-solid fa-circle-user"></i>
+                  </a>
+                }
+              </span>
+          </div>
+         </div>
+      </div>
+
+      <div class="acr_dash_route">
+              <router-outlet></router-outlet>
+              <app-loader></app-loader>
+      </div>
+
+  </div>
+
+</div>
+
+<app-modal></app-modal>
+
+

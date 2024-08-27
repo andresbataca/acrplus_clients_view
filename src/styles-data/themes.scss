@@ -1,0 +1,128 @@
+// Tema claro
+$light-primary-color: #EA353B;
+
+$light-secondary-color-1: #b5d77c;
+$light-secondary-color-2: #EDCE2F;
+$light-secondary-color-3: #354364;
+
+$light-color-text: #707070;
+$light-color-text-check: #F4F4F4;
+$light-color-text-hover: #F4F4F4;
+$light-border-color: #e9ecef;
+$light-box-shadow-color: rgba(136, 152, 170, 0.15);
+$light-color-text-toggle: #FFF;
+
+$light-fondo-welcome: #E4E7EB;
+$light-fondo-home: #f8f9fe;
+$light-fondo-submenu: #f2f2f2;
+$light-sidebar-color-fondo: #FFF;
+$light-input: #FFF;
+$light-toggle-color-fondo: #DDD;
+$light-fondo-box: #F6F5FF;
+$light-fondo-label-input: #d5d9de;
+$light-box-label-input: #ddd;
+$light-otp: #f3b8be;
+$light-fondo-check: #FFF;
+$light-fondo-link: $light-primary-color;
+
+
+// Tema oscuro
+$dark-primary-color: #FFF;
+
+$dark-secondary-color-1: #FFF;
+$dark-secondary-color-2: #FFF;
+$dark-secondary-color-3: #FFF;
+
+$dark-color-text: #F4F4F4;
+$dark-color-text-check: #707070;
+$dark-color-text-hover: #F4F4F4;
+$dark-border-color: #323030;
+$dark-box-shadow-color: none;
+$dark-color-text-toggle: #FFF;
+
+$dark-fondo-welcome: #242526;
+$dark-fondo-home: #18191a;
+$dark-fondo-submenu: #535353;
+$dark-sidebar-color-fondo: #242526;
+$dark-input: #3d3d3d;
+$dark-toggle-color-fondo: #707070;
+$dark-fondo-box: #3a3b3c;
+$dark-fondo-label-input: #3a3b3c;
+$dark-box-label-input: none;
+$dark-otp: #242526;
+$dark-fondo-check: #3a3b3c;
+$dark-fondo-link: #3a3b3c;
+
+
+// colores neutros
+
+
+// mixin that enables css variables in light mode
+@mixin lighten() {
+  --primary-color: #{$light-primary-color};
+
+  --secondary-color-1: #{$light-secondary-color-1};
+  --secondary-color-2: #{$light-secondary-color-2};
+  --secondary-color-3: #{$light-secondary-color-3};
+
+  --color-text: #{$light-color-text};
+  --color-text-check: #{$light-color-text-check};
+  --color-text-hover: #{$light-color-text-hover};
+  --border-color: #{$light-border-color};
+  --box-shadow-color: #{$light-box-shadow-color};
+  --color-text-toggle: #{$light-color-text-toggle};
+
+  --fondo-welcome: #{$light-fondo-welcome};
+  --fondo-home: #{$light-fondo-home};
+  --fondo-submenu: #{$light-fondo-submenu};
+  --sidebar-color-fondo: #{$light-sidebar-color-fondo};
+  --fondo-input: #{$light-input};
+  --toggle-color-fondo: #{$light-toggle-color-fondo};
+  --fondo-box: #{$light-fondo-box};
+  --fondo-label-input: #{$light-fondo-label-input};
+  --box-label-input: #{$light-box-label-input};
+  --otp: #{$light-otp};
+  --fondo-check: #{$light-fondo-check};
+  --fondo-link: #{$light-fondo-link};
+
+ }
+
+ // mixin that enables css variables in dark mode
+ @mixin darken() {
+  --primary-color: #{$dark-primary-color};
+
+  --secondary-color-1: #{$dark-secondary-color-1};
+  --secondary-color-2: #{$dark-secondary-color-2};
+  --secondary-color-3: #{$dark-secondary-color-3};
+
+  --color-text: #{$dark-color-text};
+  --color-text-check: #{$dark-color-text-check};
+  --color-text-hover: #{$dark-color-text-hover};
+  --border-color: #{$dark-border-color};
+  --box-shadow-color: #{$dark-box-shadow-color};
+  --color-text-toggle: #{$dark-color-text-toggle};
+
+  --fondo-welcome: #{$dark-fondo-welcome};
+  --fondo-home: #{$dark-fondo-home};
+  --fondo-submenu: #{$dark-fondo-submenu};
+  --sidebar-color-fondo: #{$dark-sidebar-color-fondo};
+  --fondo-input: #{$dark-input};
+  --toggle-color-fondo: #{$dark-toggle-color-fondo};
+  --fondo-box: #{$dark-fondo-box};
+  --fondo-label-input: #{$dark-fondo-label-input};
+  --box-label-input: #{$dark-box-label-input};
+  --otp: #{$dark-otp};
+  --fondo-check: #{$dark-fondo-check};
+  --fondo-link: #{$dark-fondo-link};
+
+ }
+
+ @mixin normal() {
+   /*colores neutros*/
+   --color-text-neutro: #{$light-color-text};
+   --primary-color-neutro: #{$light-primary-color};
+
+   --secondary-color-1: #{$light-secondary-color-1};
+   --secondary-color-2: #{$light-secondary-color-2};
+   --secondary-color-3: #{$light-secondary-color-3};
+ }

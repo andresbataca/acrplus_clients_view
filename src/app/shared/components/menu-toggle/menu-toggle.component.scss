@@ -1,0 +1,51 @@
+@import '../../../../styles.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acr-container_faq {
+  display: flex;
+  flex-direction: column;
+
+.acr-accordion {
+  width: 100%;
+  padding: 15px 20px 15px 0px;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+  position: relative;
+  font-size: $fs-base;
+  color: var(--color-text);
+  font-weight: 400;
+  border-bottom: 1px solid var(--color-text);
+
+
+  &::after {
+    content: "\f13a";
+    position: absolute;
+    font-family: "fontawesome";
+    font-size: $fs-base;
+    right: 0px;
+    top: 19px;
+  }
+
+}
+
+.is-open::after {
+  content: "\f139";
+}
+
+.acr-accordion_content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s ease-in-out;
+  p{
+  font-size: $fs-xs;
+  color: var(--color-text);
+  font-weight: 100;
+  padding: 10px 20px;
+  }
+}
+}

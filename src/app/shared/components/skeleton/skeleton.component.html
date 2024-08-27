@@ -1,0 +1,10 @@
+@if (type === 'single') {
+  <div class="rectangle"></div>
+} @else if (type === 'label-input') {
+  <div class="rectangle-input">
+    <div class="label-rectangle" [style.width]="widthLabel" [style.height]="heightLabel"></div>
+    <div class="input-rectangle" [style.width]="widthInput" [style.height]="heightInput"></div>
+  </div>
+} @else if (type === 'multiple') {
+  <div class="rectangle-mult"></div>
+}

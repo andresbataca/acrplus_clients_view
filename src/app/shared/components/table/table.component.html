@@ -1,0 +1,149 @@
+<table class="acr-tablacustom">
+  <thead class="acr-theadcustom">
+    <tr class="acr-trcustom">
+      <ng-container *ngTemplateOutlet="header.template; context: { $implicit: columns }">
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody class="acr-tbodycustom">
+    <ng-container *ngFor="let item of items">
+      <tr class="acr-trcustom">
+        <ng-container *ngTemplateOutlet="body.template; context: { $implicit: { rowData: item, columns: columns } }">
+        </ng-container>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+
+    <div class="actions">
+      <div class="current">
+        <strong
+          >{{ pageData.start + 1 }} <span>-</span> {{ pageData.end }}</strong
+        >
+        of {{ dataSize }}
+      </div>
+
+      <span (click)="previous()">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+      <span (click)="next()" >
+        <i class='bx bx-chevron-right' ></i>
+      </span>
+    </div>
+
+
+<!-- uso -->
+
+<!-- <ui-table [columns]="columns" [data]="dataTable" [pageSize]="5">
+  <ng-template tableHeader let-columns>
+    <th class="acr-thcustom" *ngFor="let col of columns">
+      {{ col.colName }}
+    </th>
+  </ng-template>
+
+  <ng-template tableBody let-data>
+    <td class="acr-tdcustom" *ngFor="let col of data.columns">
+      {{ data.rowData[col.fieldName] }}
+    </td>
+  </ng-template>
+</ui-table> -->
+
+<!-- llenado -->
+
+<!-- columns = [
+{
+  colName: 'Title',
+  fieldName: 'title'
+},
+{
+  colName: 'Name',
+  fieldName: 'name'
+},
+{
+  colName: 'Description',
+  fieldName: 'description'
+}
+];
+
+dataTable = [
+{
+  title: 'Some Mock Title',
+  name: 'Puppy',
+  description: 'Some Mock Description',
+
+},
+{
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+
+},
+{
+  title: 'Some Mock Title',
+  name: 'Watch',
+  description: 'Some Mock Description',
+
+},
+{
+  title: 'Some Mock Title',
+  name: 'Clock',
+  description: 'Some Mock Description',
+
+},
+{
+  title: 'Some Mock Title',
+  name: 'Leash',
+  description: 'Some Mock Description',
+
+}, {
+  title: 'Some Mock Title',
+  name: 'Coffee Cup',
+  description: 'Some Mock Description',
+
+}, {
+  title: 'Some Mock Title',
+  name: 'Bottle',
+  description: 'Some Mock Description',
+},
+ {
+  title: 'Some Mock Title',
+  name: 'Something else',
+  description: 'Some Mock Description',
+}
+, {
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+},
+ {
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+},
+ {
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+},
+ {
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+},
+{
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+},
+{
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+},
+{
+  title: 'Some Mock Title',
+  name: 'Vinyl Record',
+  description: 'Some Mock Description',
+}
+] -->

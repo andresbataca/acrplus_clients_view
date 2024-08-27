@@ -1,0 +1,21 @@
+<div class="acr_card_button">
+  <button #button (click)="toggleMenu()" [disabled]="buttonArray().disabled" class="button-37">
+    @if (buttonArray().buttonMode === 'icon') {
+      <span><i class='{{buttonArray().icon}}'></i></span>
+    }@else{
+      <span>{{buttonArray().title}}</span>
+      <span><i class="fa-solid fa-angle-down"></i></span>
+    }
+  </button>
+
+  <div #payContent class="acr_menu" [ngStyle]="{'right': buttonArray()?.position? '0':''}" [ngClass]="{'open': isOpen()}">
+    <ul>
+      <li *ngFor="let data of buttonArray().dataItem">
+        <div class="acr_menu_item" (click)="data.onMethodAction()">
+          <img [src]="data.img" alt="">
+          <p>{{data.name}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

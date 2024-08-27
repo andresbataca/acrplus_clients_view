@@ -1,0 +1,20 @@
+<div class="acr_cont">
+
+  <div class="acr_header">
+    <img *Ske="skeleton(); height:'100px' width:'100px' type:'single'" [src]="dataClient().picture_user" alt="">
+    <app-title *Ske="skeleton(); height:'20px' width:'100px' type:'single'"  type="tit" [label]="(dataClient().name_1 | capitalize) +' '+ (dataClient().name_2 | capitalize)" />
+    <app-title *Ske="skeleton(); height:'20px' width:'120px' type:'single'" type="sub" [label]="(dataClient().last_name_1 | capitalize) +' '+ (dataClient().last_name_2 | capitalize)" />
+  </div>
+
+  <div class="acr_body">
+
+    <app-title *Ske="skeleton(); height:'20px' width:'100px' type:'single'"  type="tit" [label] = "'Información personal'" />
+
+    <app-card-button *Ske="skeleton(); height:'60px'type:'single'" [cardArray]="card7()"></app-card-button>
+    <app-card-button *Ske="skeleton(); height:'60px'type:'single'" [cardArray]="card8()"></app-card-button>
+    <app-card-button *Ske="skeleton(); height:'60px'type:'single'" [cardArray]="card9()"></app-card-button>
+    <app-card-button *Ske="skeleton(); height:'60px'type:'single'" [cardArray]="card10()"></app-card-button>
+
+  </div>
+
+</div>

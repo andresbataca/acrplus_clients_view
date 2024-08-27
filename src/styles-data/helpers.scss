@@ -1,0 +1,16 @@
+@mixin scrollHelp {
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    width: 4px;
+  }
+
+}

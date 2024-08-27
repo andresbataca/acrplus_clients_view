@@ -1,0 +1,38 @@
+<div class="acr_cont">
+  @if (arraySelect().labelExists) {
+    <label class="acr_label" for="">
+      {{arraySelect().name}}
+    </label>
+  }
+  <div class="acr_form"  [formGroup]="form">
+    @if (arraySelect().iconExists) {
+      <label class="acr_icon_izq">
+        <span><i [class]="arraySelect().icon"></i></span>
+      </label>
+    }
+      <select
+      required
+      name="select"
+      [style.font-size]="arraySelect().font"
+      [formControlName]="arraySelect().controlName"
+      (mousemove)="viewToolTipMsg=true"
+      (mouseout)="viewToolTipMsg=false">
+          <option value="" hidden>{{arraySelect().placeholder}}</option>
+          @for (item of arraySelect().selects; track $index) {
+            <option name="select" [value]="item.value">
+              {{item.name}}
+            </option>
+          }
+      </select>
+      <div class="acr_select_arrow">
+          <div class="acr_arrow_down"></div>
+      </div>
+  </div>
+  @if (arraySelect().tooltip) {
+    @if (viewToolTipMsg) {
+      <div class="mensaje-cursor">
+        {{arraySelect().name}}
+      </div>
+    }
+  }
+</div>
