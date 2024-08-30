@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ModalService } from '../../../shared/components/modal/modal.service';
@@ -11,6 +11,7 @@ import { SelectComponent } from '../../../shared/components/select/select.compon
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { CustomValidators } from '../../../core/validators/custom-validators';
 import { DarkModeComponent } from '../../../shared/components/dark-mode/dark-mode.component';
+import { modalModel } from '../../../core/models/modal.model';
 
 @Component({
   selector: 'app-register',
@@ -144,10 +145,11 @@ export class RegisterComponent {
     ],
   };
 
-  newButtonData1: any = {
+
+  newButton = signal({
     text: 'Consultar',
     load_spinner: false,
-  };
+  });
 
   dataForm: FormGroup = this.fb.group({
     typeID: ['', [Validators.required]],
@@ -173,7 +175,41 @@ export class RegisterComponent {
 
 
   getSubmit(){
-    console.log(this.dataForm.getRawValue());
+    this.newButton.update((val) => {return {...val,load_spinner: true};});
+
+    const dataRegister = this.dataForm.getRawValue();
+
+    this.authService.register(dataRegister)
+    .subscribe({
+      next:(resp)=>{
+
+        console.log(resp);
+
+        if (resp.success) {
+          this.newButton.update((val) => {return {...val,load_spinner: false};});
+          this.router.navigate(['/home']);
+        } else {
+
+          this.newButton.update((val) => {return {...val,load_spinner: false};});
+          const newModalData: modalModel = {
+            viewModal: true,
+            clickOutside: true,
+            title: 'Atención',
+            colorIcon: 'red',
+            icon: 'fa-solid fa-triangle-exclamation',
+            message: resp.message,
+            onMethod: () => {
+              this.modalService.closeModal()
+            },
+            onMethodAction: () => {},
+            loader: false,
+            buttonText: 'Cerrar',
+          };
+
+          this.modalService.setArray(newModalData);
+        }
+      }
+    })
 
   }
 

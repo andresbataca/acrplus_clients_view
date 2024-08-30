@@ -17,7 +17,7 @@
         <div class="acr_form_subtitle">
           <h2>Ingresa los siguientes datos</h2>
         </div>
-        
+
       </div>
       <app-select [form]="dataForm" [arraySelect]="arrayEmpleadoSelect1"></app-select>
       <app-input [form]="dataForm" [arrayInput]="arrayInput1"></app-input>
@@ -31,7 +31,7 @@
 
 
       <div style="width: 100%">
-        <app-button [buttonArray]="newButtonData1" [myForm]="dataForm.valid"></app-button>
+        <app-button [buttonArray]="newButton()" [myForm]="dataForm.valid"></app-button>
       </div>
 
     </form>

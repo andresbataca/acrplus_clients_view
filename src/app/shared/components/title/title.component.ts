@@ -18,4 +18,14 @@ export class TitleComponent {
   @Input() weight!:string;
   @Input() font!:string;
   @Input() styles!: any;
+
+  @Input() method!: () => void;
+
+  executeMethod() {
+    if (this.method) {
+      this.method();
+    }
+  }
+
+
  }

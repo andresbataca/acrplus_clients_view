@@ -55,7 +55,7 @@
 
     @if (arrayInput.validationSpecial && !arrayInput.passwordTwo) {
         @if (inputService.dataFormValids(form, arrayInput)) {
-          <div style="font-size: 14px;">
+          <div style="font-size: 14px; display: flex; flex-direction: column; align-items: flex-start;">
             Recuerda que la contraseña debe:
             @for (item of arrayInput.validations; track item.validErrors) {
               <div [ngClass]=" form.get(arrayInput.controlName)?.errors?.['required'] || form.get(arrayInput.controlName)?.errors?.[item.validErrors] ? 'validator-danger' : 'validator-success' ">

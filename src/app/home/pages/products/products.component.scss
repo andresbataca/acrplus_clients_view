@@ -24,6 +24,11 @@
   grid-area: div-3;
 }
 
+.acr_movements{
+  display: flex;
+  flex-direction: column;      
+  gap: 10px;
+}
 
 .acr_movements_body {
   display: flex;

@@ -15,6 +15,10 @@ import { DataTransactionsService } from '../../mappers/data_transactions.service
 import { PayBinanceComponent } from "../../components/pay-binance/pay-binance.component";
 import { PayBinanceService } from '../../components/pay-binance/pay-binance.service';
 import { AuthService } from '../../../auth/services/auth.service';
+import { ButtonSpecialComponent } from "../../../shared/components/button-special/button-special.component";
+import { ProductsService } from './card-pay/products.service';
+import { modalModel } from '../../../core/models/modal.model';
+import { ModalService } from '../../../shared/components/modal/modal.service';
 
 @Component({
     selector: 'app-products',
@@ -23,29 +27,70 @@ import { AuthService } from '../../../auth/services/auth.service';
     styleUrl: './products.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
-        CommonModule,
-        skeletonDirective,
-        TableSpecialComponent,
-        TitleComponent,
-        CustomNumberPipe,
-        CardDetailsComponent,
-        CardPayComponent,
-        CardButtonComponent,
-        PayPseComponent,
-        PayBinanceComponent
-    ]
+    CommonModule,
+    skeletonDirective,
+    TableSpecialComponent,
+    TitleComponent,
+    CustomNumberPipe,
+    CardDetailsComponent,
+    CardPayComponent,
+    CardButtonComponent,
+    PayPseComponent,
+    PayBinanceComponent,
+    ButtonSpecialComponent
+]
 })
 export class ProductsComponent {
   private dataService = inject(DataTransactionsService)
   public payPseService = inject(PayPseService)
   public payBinanceService = inject(PayBinanceService)
   public productState = inject(ProductStateService)
+  public productervice = inject(ProductsService)
+  public modalService = inject(ModalService);
+
+
   private auth = inject(AuthService);
 
   skeleton = signal<boolean>(true);
 
   data = signal<any>([]);
   dataMovemets = signal<any>([]);
+
+  buttonSpecial1 = signal<any>({
+    width:'150px',
+    text:'Descargar extracto',
+    onMethodAction: () => {
+      this.buttonSpecial1.update((val) => {return {...val,load_spinner: true};});
+
+      const ID = this.auth.userData().ID;
+      const typeID = this.auth.userData().checkId;
+
+      this.productervice.passwordRecovery(ID,typeID)
+      .subscribe({
+        next:(resp)=>{
+          this.buttonSpecial1.update((val) => {return {...val,load_spinner: false};});
+
+          const newModalData: modalModel = {
+            viewModal: true,
+            clickOutside: true,
+            title: 'Atención',
+            colorIcon: 'red',
+            icon: 'fa-solid fa-triangle-exclamation',
+            message: resp.message,
+            onMethod: () => {
+              this.modalService.closeModal()
+            },
+            onMethodAction: () => {},
+            loader: false,
+            buttonText: 'Cerrar',
+          };
+
+          this.modalService.setArray(newModalData);
+        }
+      })
+
+    },
+   })
 
   card1 = signal<any>({
     icon: 'fa-regular fa-credit-card',

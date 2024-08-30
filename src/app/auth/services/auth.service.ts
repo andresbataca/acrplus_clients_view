@@ -12,15 +12,16 @@ import { modalModel } from '../../core/models/modal.model';
 import { environments } from '../../../environments/environments.develoment';
 import { TooltipService } from '../../shared/components/tooltip/tooltip.service';
 import { CacheService } from '../../core/services/cache.service';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private apiPost = inject(ApiPostService)
   private router = inject(Router)
-  public  encryptation = inject(EncryptationService)
+  public encryptation = inject(EncryptationService)
   private modalService = inject(ModalService)
-  private tooltipService =  inject(TooltipService)
-  private cache =  inject(CacheService)
+  private tooltipService = inject(TooltipService)
+  private cache = inject(CacheService)
 
   private baseUrl: string = environments.baseUrl;
 
@@ -33,45 +34,63 @@ export class AuthService {
     time: ''
   });
 
+
   get usuario() {
     return this.userData();
   }
 
-  register(checkID: string, ID: string, contraseña: string, contraseña_two: string, term: boolean) {
+  register(dataForm:any) {
 
     const UrlApi = `${this.baseUrl}/api/app/register`;
-    let termino = '' ;
+    let termino = '';
 
-    if (term) {
+    if (dataForm.term) {
       termino = '1';
     } else {
       termino = '2';
     }
 
     const paramsBody = {
-      type_identification: checkID,
-      identification: ID,
-      password: contraseña,
-      password_confirm: contraseña_two,
-      tyc:  termino,
+      type_identification: dataForm.typeID,
+      identification: dataForm.ID,
+      password: dataForm.contraseña,
+      password_confirm: dataForm.contraseñaDos,
+      tyc: dataForm.term,
       token_fcm: 'jhasjydie76iwhfe8k84',
       id_device: 'agtd86732vbbjhnf',
     };
 
     return this.apiPost.getDebtInfo(UrlApi, paramsBody)
-    .pipe(
-      tap(resp => {
+      .pipe(
+        tap(resp => {
 
-        console.log(resp);
+          const minutosExpiracion = resp.data.expireMinutesAt;
+          let currentDateObj = new Date();
+          let numberOfMlSeconds = currentDateObj.getTime();
+          let addMlSeconds = minutosExpiracion * 60000;
+          let newDateObj = new Date(numberOfMlSeconds + addMlSeconds);
 
-      }),
-      //el map me muta o cambia el observable que viene y me devuelve otro
-      map((resp) => resp.success),
-      catchError((err) => of(err.error.message))
-    )
+          this.userData.set({
+            tokenUser: resp.data.token,
+            checkId: dataForm.typeID,
+            ID: dataForm.ID,
+            name: resp.data.user.firstName,
+            photo: resp.data.user.profilePhoto,
+            time: newDateObj.toString()
+          })
+
+          let user = btoa(this.encryptation.encrypt(JSON.stringify(this.userData())));
+
+          localStorage.setItem('acr_user', user);
+
+        }),
+        //el map me muta o cambia el observable que viene y me devuelve otro
+        map((resp) => resp),
+        catchError((err) => of(err.error))
+      )
   }
 
-  login(checkID: string, ID:string, contraseña: string) {
+  login(checkID: string, ID: string, contraseña: string) {
 
     const UrlApi = `${this.baseUrl}/api/app/login`;
 
@@ -84,35 +103,35 @@ export class AuthService {
 
     return this.apiPost.getDebtInfo(UrlApi, paramsBody)
       .pipe(
-      retry(2),
-      tap((resp) => {
-        if (resp) {
+        retry(2),
+        tap((resp) => {
+          if (resp) {
 
-          const minutosExpiracion = resp.data.expireMinutesAt;
-          let currentDateObj = new Date();
-          let numberOfMlSeconds = currentDateObj.getTime();
-          let addMlSeconds = minutosExpiracion * 60000      ;
-          let newDateObj = new Date(numberOfMlSeconds + addMlSeconds);
+            const minutosExpiracion = resp.data.expireMinutesAt;
+            let currentDateObj = new Date();
+            let numberOfMlSeconds = currentDateObj.getTime();
+            let addMlSeconds = minutosExpiracion * 60000;
+            let newDateObj = new Date(numberOfMlSeconds + addMlSeconds);
 
-          this.userData.set({
-            tokenUser: resp.data.token,
-            checkId: checkID,
-            ID: ID,
-            name: resp.data.user.firstName,
-            photo: resp.data.user.profilePhoto,
-            time: newDateObj.toString()
-          })
+            this.userData.set({
+              tokenUser: resp.data.token,
+              checkId: checkID,
+              ID: ID,
+              name: resp.data.user.firstName,
+              photo: resp.data.user.profilePhoto,
+              time: newDateObj.toString()
+            })
 
-          let user = btoa(this.encryptation.encrypt(JSON.stringify(this.userData())));
+            let user = btoa(this.encryptation.encrypt(JSON.stringify(this.userData())));
 
-          localStorage.setItem('acr_user',user);
+            localStorage.setItem('acr_user', user);
 
-        }
-      }),
+          }
+        }),
 
-      map((resp) => resp),
-      catchError((err) => of(err.error))
-    );
+        map((resp) => resp),
+        catchError((err) => of(err.error))
+      );
   }
 
   getItemFromLocalStorage(key: string) {
@@ -132,8 +151,8 @@ export class AuthService {
     return tok;
   }
 
-  ValitionTime(){
-    const time = computed(() => { const firstUser = this.userData(); return firstUser?.time;});
+  ValitionTime() {
+    const time = computed(() => { const firstUser = this.userData(); return firstUser?.time; });
 
     let currentDateObj = new Date();
     let fechaBack = time();
@@ -166,7 +185,7 @@ export class AuthService {
       title: 'Cerramos su sesión por seguridad',
       icon: '',
       message: 'Por favor, vuelve a ingresar con tus datos.',
-      onMethod: () => {}
+      onMethod: () => { }
     };
 
     this.tooltipService.setArray(newModalData1);
@@ -183,10 +202,10 @@ export class AuthService {
       colorIcon: 'red',
       icon: 'fa-solid fa-triangle-exclamation',
       message: '¿Estás seguro que deseas cerrar sesión?',
-      onMethod:() =>{
+      onMethod: () => {
         this.modalService.closeModal()
       },
-      isThereaButton2:true,
+      isThereaButton2: true,
       onMethodAction: () => {
         this.modalService.closeModal()
         localStorage.removeItem('acr_user');
@@ -194,7 +213,7 @@ export class AuthService {
       },
       loader: false,
       buttonText: 'No',
-      buttonTextSecondary:'Sí'
+      buttonTextSecondary: 'Sí'
     };
 
     this.modalService.setArray(newModalData);
