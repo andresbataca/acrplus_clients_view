@@ -176,3 +176,12 @@ input[type="date"]::-webkit-inner-spin-button,
   color: green;
   font-size: $fs-xs;
 }
+
+
+@media (max-width: 768px) {
+  .acr_cont{
+    .acr_form{
+      height: 45px;
+    }
+  }
+}

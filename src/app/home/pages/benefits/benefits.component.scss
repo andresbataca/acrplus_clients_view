@@ -52,7 +52,6 @@
 }
 
 .acr_nobeneficts {
-  width: 600px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -164,6 +163,13 @@
 
 @media (max-width: 768px) {
   .acr_cont {}
+
+  .acr_nobeneficts {
+    text-align: center;
+    &_body{
+      flex-direction: column;
+    }
+  }
 
   .acr_beneficts {
     flex-direction: column;

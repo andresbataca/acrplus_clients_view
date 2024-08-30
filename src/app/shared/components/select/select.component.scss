@@ -85,11 +85,12 @@
       }
 
       .acr_select_arrow {
-          position: absolute;
-          top: 0;
-          right: 0;
-          padding: 15px 12px;
           pointer-events: none;
+
+          position: absolute;
+          top: 50%;
+          right: 12px;
+          transform: translateY(-50%);
 
           .acr_arrow_down {
               width: 0;
@@ -135,4 +136,13 @@
   z-index: 9999;
   right: 0;
   top: 35px;
+}
+
+
+@media (max-width: 768px) {
+  .acr_cont{
+    .acr_form{
+      height: 45px;
+    }
+  }
 }

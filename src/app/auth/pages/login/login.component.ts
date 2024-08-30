@@ -14,6 +14,7 @@ import { CustomValidators } from '../../../core/validators/custom-validators';
 import { CacheService } from '../../../core/services/cache.service';
 import { TooltipComponent } from '../../../shared/components/tooltip/tooltip.component';
 import { DarkModeComponent } from '../../../shared/components/dark-mode/dark-mode.component';
+import { TitleComponent } from "../../../shared/components/title/title.component";
 
 @Component({
   selector: 'app-login',
@@ -26,8 +27,9 @@ import { DarkModeComponent } from '../../../shared/components/dark-mode/dark-mod
     ButtonComponent,
     RouterModule,
     TooltipComponent,
-    DarkModeComponent
-  ],
+    DarkModeComponent,
+    TitleComponent
+],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -90,26 +92,8 @@ export class LoginComponent {
     type: 'password',
     isEyeChange: false,
     errorIcon:false,
-    validationSpecial: true,
-    validations: [
-      {
-        validErrors: 'minlength',
-        descriptErrors: 'tener minimo 8 caracteres',
-      },
-      {
-        validErrors: 'hasCapitalCase',
-        descriptErrors: 'Tener una letra mayúscula',
-      },
-      {
-        validErrors: 'hasNumber',
-        descriptErrors: 'Tener un número',
-      },
-      {
-        validErrors: 'hasSpecialCharacters',
-        descriptErrors: 'No tener caracteres especiales',
-      },
-
-    ],
+    validationSpecial: false,
+    validations: [],
   };
 
   newButton = signal({
@@ -120,13 +104,7 @@ export class LoginComponent {
   dataForm: FormGroup = this.fb.group({
     typeID: ['', [Validators.required]],
     ID: ['', [Validators.required]],
-    contraseña: ['', [
-      Validators.required,
-      Validators.minLength(8),
-      CustomValidators.patternValidator(/\d/, { hasNumber: true }),
-      CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
-      CustomValidators.patternValidator(/^[a-zA-Z0-9äöüÄÖÜ]*$/, { hasSpecialCharacters: true })
-    ]],
+    contraseña: ['', [Validators.required]],
   });
 
   onRecovery(){

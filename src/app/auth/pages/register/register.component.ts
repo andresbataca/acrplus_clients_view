@@ -12,6 +12,7 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { CustomValidators } from '../../../core/validators/custom-validators';
 import { DarkModeComponent } from '../../../shared/components/dark-mode/dark-mode.component';
 import { modalModel } from '../../../core/models/modal.model';
+import { TitleComponent } from "../../../shared/components/title/title.component";
 
 @Component({
   selector: 'app-register',
@@ -23,8 +24,9 @@ import { modalModel } from '../../../core/models/modal.model';
     SelectComponent,
     ButtonComponent,
     RouterModule,
-    DarkModeComponent
-  ],
+    DarkModeComponent,
+    TitleComponent
+],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

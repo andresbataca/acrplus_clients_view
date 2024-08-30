@@ -116,20 +116,9 @@
 }
 
   @media (max-width: 768px) {
-    .container{
-        .container-true{
-        .acr_contest_body{
-            flex-direction: column;
-            .acr_contest_img{
-                width: 100%;
-            }
 
-            .acr_contest_descp{
-                width: 100%;
-
-            }
-        }
-    }
-    }
+  .acr_nocontest {
+    text-align: center;
+  }
 
   }
