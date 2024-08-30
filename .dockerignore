@@ -1,0 +1,8 @@
+/node_modules
+/e2e
+/docs
+/dist
+.git
+.angular
+.vscode
+*.zip
