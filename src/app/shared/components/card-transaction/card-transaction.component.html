@@ -1,0 +1,24 @@
+<!-- @if (cardArray()) { -->
+ <div class="acr_cont">
+   @for (item of movements(); track $index) {
+   <div class="acr_card">
+     <div class="acr_card_header">
+       <div class="acr_card_header_icon">
+        @if (item.transactionType === 'Pago') {
+          <span class="acr_icon" style="color: var(--secondary-color-1)"><i class='bx bx-right-down-arrow-circle' ></i></span>
+        }@else {
+          <span class="acr_icon" style="color: var(--primary-color)"><i class='bx bx-left-top-arrow-circle'></i></span>
+        }
+        <app-title type="sub" [label]="item.ally" weight="500" />
+       </div>
+       <span class="acr_icon" style="color: var(--color-text)"><i class='bx bx-chevron-right'></i></span>
+     </div>
+     <app-separator></app-separator>
+     <div class="acr_card_body">
+       <app-title type="sub" [label]="item.date | date" weight="500" font="var(--fs-xxs)" />
+       <app-title type="tit" [label]="item.value | currency" font="var(--fs-sm)" weight="700" />
+     </div>
+   </div>
+   }
+ </div>
+<!-- } -->

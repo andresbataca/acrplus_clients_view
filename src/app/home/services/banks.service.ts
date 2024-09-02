@@ -85,7 +85,7 @@ export class BanksService {
       'Authorization-pse':'Bearer '+ this.tokenPse()
     };
 
-    return this.http.post('https://development-qa.aliadosacr.com/api/v1/pse/init/transaction', raw, { headers: headers })
+    return this.http.post('https://desarrollos.aliadosacr.com/api/v1/pse/init/transaction', raw, { headers: headers })
     .pipe(
       map((resp : any) =>  resp),
       catchError((err) => of(err.error))

@@ -19,6 +19,7 @@ import { ButtonSpecialComponent } from "../../../shared/components/button-specia
 import { ProductsService } from './card-pay/products.service';
 import { modalModel } from '../../../core/models/modal.model';
 import { ModalService } from '../../../shared/components/modal/modal.service';
+import { CardTransactionComponent } from "../../../shared/components/card-transaction/card-transaction.component";
 
 @Component({
     selector: 'app-products',
@@ -37,7 +38,8 @@ import { ModalService } from '../../../shared/components/modal/modal.service';
     CardButtonComponent,
     PayPseComponent,
     PayBinanceComponent,
-    ButtonSpecialComponent
+    ButtonSpecialComponent,
+    CardTransactionComponent
 ]
 })
 export class ProductsComponent {
@@ -318,6 +320,8 @@ export class ProductsComponent {
     });
 
     this.dataMovemets.set(translatedTransactions)
+    console.log(this.dataMovemets());
+
   }
 
   buttonDisabled(){

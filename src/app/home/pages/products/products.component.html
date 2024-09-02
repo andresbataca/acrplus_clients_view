@@ -11,10 +11,13 @@
 
     <div class="div-2">
       <div class="acr_movements" *Ske="skeleton(); height:'350px' type:'single'">
-        <div class="acr_movements_body">
-          <app-title type="tit" [label]="'Movimientos'" font="var(--fs-sm)" />
+        <!-- <div class="acr_movements_body">
           <table-special [tableData]="this.dataMovemets()" [columnsArray]="columnArray" />
-        </div>
+        </div> -->
+        <app-title type="tit" [label]="'Movimientos'" font="var(--fs-sm)" />
+
+        <app-card-transaction [movements]="this.dataMovemets()"></app-card-transaction>
+
         <app-button-special [buttonArray]="buttonSpecial1()"></app-button-special>
       </div>
     </div>

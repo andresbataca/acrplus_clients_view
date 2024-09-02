@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+@import '../../../../styles.scss';
+
+.acr_cont{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acr_card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--sidebar-color-fondo);
+  // box-shadow: 0 8px 4px rgba(0, 0, 0, 0.0392156863), 0 0 4px rgba(0, 0, 0, 0.2509803922);
+  border-radius: 5px;
+  padding: 10px 20px;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &_icon{
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  &_body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .acr_icon {
+    display: flex;
+    align-items: center;
+    // padding: 10px;
+    // border-radius: 50%;
+    // background-color: aliceblue;
+
+    i{
+      font-size: $fs-md;
+      // color: var(--color-text);
+    }
+  }
+}
